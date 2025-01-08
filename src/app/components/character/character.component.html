@@ -1,0 +1,34 @@
+<div class="container" *ngIf="character">
+  <mat-toolbar color="primary">
+    <h1>{{ character.name }}</h1>
+  </mat-toolbar>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="character.image" [alt]="character.name" class="img-fluid mx-auto d-block" />
+    </div>
+    <div class="col-md-8">
+      <mat-card>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <mat-card-subtitle>{{ character.race }} - {{ character.gender }}</mat-card-subtitle>
+        <mat-card-content>
+          <p>{{ character.description }}</p>
+          <p> <span class="text-primary">Affiliation:</span> {{ character.affiliation }}</p>
+          <p><span class="text-primary">Current Ki:</span> {{ character.ki }}</p>
+          <p><span class="text-primary">Max Ki:</span> {{ character.maxKi }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" routerLink="/characters">Back to Characters</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!character" class="text-center mt-4">
+  <mat-progress-spinner mode="indeterminate" diameter="50" color="accent"></mat-progress-spinner>
+  <p>Loading character details...</p>
+</div>
